@@ -34,7 +34,7 @@ func Test_UserFindLedger(t *testing.T) {
 	}
 	userApp, err := FindLedgerLuxApp()
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatalf("%s", err.Error())
 	}
 
 	assert.NotNil(t, userApp)
@@ -47,7 +47,7 @@ func Test_UserGetVersion(t *testing.T) {
 	}
 	userApp, err := FindLedgerLuxApp()
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatalf("%s", err.Error())
 	}
 	defer userApp.Close()
 
@@ -67,7 +67,7 @@ func Test_UserGetPublicKey(t *testing.T) {
 	}
 	userApp, err := FindLedgerLuxApp()
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatalf("%s", err.Error())
 	}
 	defer userApp.Close()
 
@@ -116,7 +116,7 @@ func Test_UserGetPublicKeyETH(t *testing.T) {
 	}
 	userApp, err := FindLedgerLuxApp()
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatalf("%s", err.Error())
 	}
 	defer userApp.Close()
 
@@ -156,7 +156,7 @@ func Test_UserPK_HDPaths(t *testing.T) {
 	}
 	userApp, err := FindLedgerLuxApp()
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatalf("%s", err.Error())
 	}
 	defer userApp.Close()
 
@@ -221,7 +221,7 @@ func Test_UserSign(t *testing.T) {
 	}
 	userApp, err := FindLedgerLuxApp()
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatalf("%s", err.Error())
 	}
 	defer userApp.Close()
 
@@ -315,7 +315,7 @@ func Test_UserSignHash(t *testing.T) {
 	}
 	userApp, err := FindLedgerLuxApp()
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatalf("%s", err.Error())
 	}
 	defer userApp.Close()
 

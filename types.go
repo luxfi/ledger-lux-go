@@ -18,8 +18,7 @@ package ledger_lux_go
 
 import (
 	"fmt"
-
-	ledger_go "github.com/zondax/ledger-go"
+	"github.com/zondax/ledger-go"
 )
 
 const (

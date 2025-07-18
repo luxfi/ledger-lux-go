@@ -141,7 +141,7 @@ func (ledger *LedgerLux) GetPubKey(path string, show bool, hrp string, chainid s
 	hash := response[publicKeyLen+1 : publicKeyLen+1+20]
 	address := string(response[publicKeyLen+1+20:])
 
-	return &ResponseAddr{publicKey, hash, address}, nil
+	return &ResponseAddr{PublicKey: publicKey, Hash: hash, Address: address}, nil
 }
 
 func (ledger *LedgerLux) Sign(pathPrefix string, signingPaths []string, message []byte, changePaths []string) (*ResponseSign, error) {
@@ -185,10 +185,12 @@ func (ledger *LedgerLux) Sign(pathPrefix string, signingPaths []string, message 
 		if err != nil {
 			if err.Error() == "[APDU_CODE_BAD_KEY_HANDLE] The parameters in the data field are incorrect" {
 				// In this special case, we can extract additional info
-				return nil, fmt.Errorf("%w extra_info=(%s)", err, string(response))
+				errorMsg := string(response)
+				return nil, errors.New(errorMsg)
 			}
 			if err.Error() == "[APDU_CODE_DATA_INVALID] Referenced data reversibly blocked (invalidated)" {
-				return nil, fmt.Errorf("%w extra_info=(%s)", err, string(response))
+				errorMsg := string(response)
+				return nil, errors.New(errorMsg)
 			}
 			return nil, err
 		}
