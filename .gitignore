@@ -36,3 +36,7 @@ cmake-build-debug/
 \.idea/
 vendor/
 *.swp
+AGENTS.md
+CLAUDE.md
+GEMINI.md
+QWEN.md
