@@ -22,12 +22,12 @@ import (
 
 	"github.com/btcsuite/btcd/btcec/v2"
 	"github.com/btcsuite/btcd/btcec/v2/ecdsa"
-	ledger_go "github.com/zondax/ledger-go"
+	ledger "github.com/luxfi/ledger"
 )
 
 // FindLedgerLuxApp FindLedgerLuxUserApp finds a Lux user app running in a ledger device
 func FindLedgerLuxApp() (_ *LedgerLux, rerr error) {
-	ledgerAdmin := ledger_go.NewLedgerAdmin()
+	ledgerAdmin := ledger.NewLedgerAdmin()
 	ledgerAPI, err := ledgerAdmin.Connect(0)
 	if err != nil {
 		return nil, err
